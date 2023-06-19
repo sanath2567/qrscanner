@@ -1,0 +1,120 @@
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Generator</title>
+  
+  <style>
+    *{
+        text-decoration: none;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      margin-bottom: 90px;
+    }
+    h1{
+        color: #ef584d;
+        font-size: 50px;
+    }
+    .container {
+      text-align: center;
+    }
+    
+    #inputText {
+      padding: 10px 10px;
+      margin-bottom: 16px;
+      width: 300px;
+      border:2px solid #000;
+    outline: none;
+    padding: 10px 10px;
+    size: 60px;
+    }
+    #inputText:hover{
+        border: 3px solid #ef584d;
+    }
+    
+    #generateButton {
+        color: black;
+    padding: 10px 10px;
+    cursor: pointer;
+    background: #ef584d;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0 ,0, 0.2),0 6px 20px 0 rgba(0, 0 ,0, 0.19);
+    margin-left: 30px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    #generateButton:hover{
+        border: #ef584d;
+    background-color: transparent;
+    color:orange;
+    transition: all 0.3 ease;
+    }
+    #qrCodeImage {
+      display: none;
+      margin-top: 20px;
+    }
+    
+    #downloadButton {
+      display: none;
+      
+      background-color: #2196f3;
+      color: white;
+    padding: 10px 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0 ,0, 0.2),0 6px 20px 0 rgba(0, 0 ,0, 0.19);
+    margin-left: 30px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    #downloadButton:hover{
+        display: none;
+        border: #ef584d;
+    background-color: transparent;
+    color:orange;
+    transition: all 0.3 ease;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QR Code Generator</h1>
+    <input type="text" id="inputText" placeholder="Enter text or URL">
+    <br>
+    <br>
+    <button id="generateButton" onclick="generateQRCode()">Generate QR Code</button>
+    <br>
+    <br>
+    <a id="downloadButton" href="#" download="qrcode.png">Download QR Code</a>
+    <div id="qrCodeImage"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.min.js"></script>
+  <script>
+    function generateQRCode() {
+      var inputText = document.getElementById("inputText").value;
+      if (inputText.trim() === "") {
+        alert("Please enter text or URL.");
+        return;
+      }
+      
+      var qr = qrcode(0, "L");
+      qr.addData(inputText);
+      qr.make();
+
+      var qrCodeImageElement = document.getElementById("qrCodeImage");
+      qrCodeImageElement.innerHTML = qr.createImgTag(5);
+      qrCodeImageElement.style.display = "block";
+      document.getElementById("downloadButton").href = qrCodeImageElement.firstChild.src;
+      document.getElementById("downloadButton").style.display = "block";
+    }
+  </script>
+</body>
+</html>
