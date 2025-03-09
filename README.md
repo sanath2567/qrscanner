@@ -23,7 +23,7 @@ This project is a **QR Code Generator** that allows users to generate QR codes d
 ### Steps to Run
 1. **Clone the Repository**:
    ```sh
-   git clone https://github.com/your-username/qr-code-generator.git
+   git clone https://github.com/sanath2567/qrscanner.git
    ```
 2. **Navigate to the Project Folder**:
    ```sh
@@ -40,7 +40,7 @@ This project is a **QR Code Generator** that allows users to generate QR codes d
 5. Use the generated QR code for scanning with any QR scanner application.
 
 ## How It Works
-1. The JavaScript script detects input changes and updates the QR code in real-time.
+1. The JavaScript script detects input changes and updates the QR code in real time.
 2. The **qrcode.js** library is used to generate and render the QR code.
 3. The download functionality converts the QR code into an image file.
 
@@ -50,6 +50,5 @@ This project is a **QR Code Generator** that allows users to generate QR codes d
 - ✅ Ability to **generate QR codes with embedded logos**.
 - ✅ Implement **QR code scanning functionality** as an additional feature.
 
-## Contact
-For any inquiries, suggestions, or feedback, feel free to reach out via email at `your-email@example.com`.
+
 
